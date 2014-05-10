@@ -4,10 +4,10 @@ require_once(dirname(__FILE__) . '/../fridgeItem.class.php');
 class FridgeItemUnitTest extends PHPUnit_Framework_TestCase
 {
 	private static $values = array(
-			'bread',
-			'10',
-			'slices',
-			'25/12/2014'
+		'bread',
+		'10',
+		'slices',
+		'25/12/2014'
 	);
 
 	public function testInitlization() {

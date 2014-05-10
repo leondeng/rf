@@ -31,7 +31,7 @@ class Ingredient {
 		return $this->_name;
 	}
 	
-	private function setName($name) {
+	public function setName($name) {
 		$this->_name = $name;
 	}
 	
@@ -39,14 +39,14 @@ class Ingredient {
 		return $this->_amount;
 	}
 	
-	private function setAmount($amount) {
+	public function setAmount($amount) {
 		$this->_amount = (int) $amount;
 	}
 	public function getUnit() {
 		return $this->_unit;
 	}
 	
-	private function setUnit($unit) {
+	public function setUnit($unit) {
 		if (!in_array($unit, UnitType::$types)) throw new Exception('Invalid unit type!');
 		
 		$this->_unit = $unit;
