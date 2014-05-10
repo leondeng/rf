@@ -1,12 +1,7 @@
 <?php
-class FridgeItem {
-	public static $unit_types = array(
-		'of',
-		'grams',
-		'ml',
-		'slices'
-	);
+require_once('unit_types.php');
 
+class FridgeItem {
 	private static $_headers = array(
 		'item',
 		'amount',
@@ -20,7 +15,7 @@ class FridgeItem {
 	private $_useby = '';
 
 	public function __construct($values) {
-		if (!is_array($values)) throw new Exception('FridgeItem only accept array for init!');
+		if (!is_array($values) || count($values) != count(self::$_headers)) throw new Exception('Invalid parameters to FridgeItem class!');
 		
 		$_values = array_combine(self::$_headers, $values);
 		$this->initialize($_values);
@@ -54,7 +49,7 @@ class FridgeItem {
 	}
 
 	protected function setUnit($unit) {
-		if (!in_array($unit, self::$unit_types)) throw new Exception('Invalid FridgeItem unit type!');
+		if (!in_array($unit, UnitType::$types)) throw new Exception('Invalid unit type!');
 		$this->_unit = $unit;
 	}
 
@@ -67,6 +62,7 @@ class FridgeItem {
 	}
 
 	public function isExpired() {
-		return $this->_useby > date('d/m/Y');
+		list($d, $m, $y) = explode('/', $this->_useby);
+		return strtotime(sprintf('%d-%d-%d 23:59:59', $y, $m, $d)) > time();
 	}
 }

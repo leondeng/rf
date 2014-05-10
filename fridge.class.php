@@ -4,7 +4,7 @@ require_once('fridgeItem.class.php');
 class Fridge {
 	private $_items = array();
 	
-	public function __construct($filename='') {
+	public function __construct($filename = '') {
 		if(empty($filename)) {
 			echo 'Please input a csv file name: ';
 			$handle = fopen ("php://stdin","r");
