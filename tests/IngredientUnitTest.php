@@ -1,5 +1,5 @@
 <?php
-require_once('../ingredient.class.php');
+require_once(dirname(__FILE__) . '/../ingredient.class.php');
 
 class IngredientUnitTest extends PHPUnit_Framework_TestCase
 {
