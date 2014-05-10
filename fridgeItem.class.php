@@ -32,7 +32,7 @@ class FridgeItem {
 		return $this->_name;
 	}
 
-	protected function setName($name) {
+	public function setName($name) {
 		$this->_name = $name;
 	}
 
@@ -40,7 +40,7 @@ class FridgeItem {
 		return $this->_amount;
 	}
 
-	protected function setAmount($amount) {
+	public function setAmount($amount) {
 		$this->_amount = $amount;
 	}
 
@@ -48,7 +48,7 @@ class FridgeItem {
 		return $this->_unit;
 	}
 
-	protected function setUnit($unit) {
+	public function setUnit($unit) {
 		if (!in_array($unit, UnitType::$types)) throw new Exception('Invalid unit type!');
 		$this->_unit = $unit;
 	}
@@ -57,12 +57,13 @@ class FridgeItem {
 		return $this->_useby;
 	}
 
-	protected function setUseBy($useby) {
+	public function setUseBy($useby) {
 		$this->_useby = $useby;
 	}
 
 	public function isExpired() {
 		list($d, $m, $y) = explode('/', $this->_useby);
-		return strtotime(sprintf('%d-%d-%d 23:59:59', $y, $m, $d)) > time();
+		//date_default_timezone_set('Australia/Sydney');
+		return strtotime(sprintf('%d-%d-%d', $y, $m, $d)) < time();
 	}
 }
