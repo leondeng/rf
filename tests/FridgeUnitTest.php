@@ -48,28 +48,21 @@ class FridgeUnitTest extends PHPUnit_Framework_TestCase
 		
 		//found
 		foreach ($recipe->getIngredients() as $ingredient) {
-			$this->assertEquals('25/12/2014', $fridge->findIngredient($ingredient));
+			$this->assertEquals('25/12/2014', $fridge->findIngredient($ingredient->getName(), $ingredient->getAmount(), $ingredient->getUnit()));
 		}
 		
 		//not found
-		$ingredient = new Ingredient(self::$recipe['ingredients'][0]);
-		$ingredient->setName('butter');
-		$this->assertFalse($fridge->findIngredient($ingredient));
+		$this->assertFalse($fridge->findIngredient('butter', 2, 'slices'));
 		
 		//not enough
-		$ingredient->setName('bread');
-		$ingredient->setAmount(11);
-		$this->assertFalse($fridge->findIngredient($ingredient));
+		$this->assertFalse($fridge->findIngredient('bread', 11, 'slices'));
 		
 		//unit mismatch
-		$ingredient->setAmount(10);
-		$ingredient->setUnit('grams');
-		$this->assertFalse($fridge->findIngredient($ingredient));
+		$this->assertFalse($fridge->findIngredient('bread', 2, 'grams'));
 		
 		//expired
-		$ingredient->setUnit('slices');
 		$items = $fridge->getItems();
 		$items[0]->setUseBy(date('d/m/Y', strtotime('yesterday')));
-		$this->assertFalse($fridge->findIngredient($ingredient));
+		$this->assertFalse($fridge->findIngredient('bread', 2, 'slices'));
 	}
 }

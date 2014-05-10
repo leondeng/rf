@@ -18,17 +18,15 @@ class Fridge {
 	
 	/*
 	 * Fridge::findIngredient()
-	 * Desc: search Fridge items for given ingredient
-	 * Para: ingredient Ingredient
+	 * Desc: search Fridge items for given ingredient name, amount and unit
+	 * Para: ingredient name, amount and unit
 	 * Return: a date string when hit, stands for useBy of hit item; false if miss or hit item unacceptable
 	 */
-	public function findIngredient($ingredient) {
-		if (!$ingredient instanceof Ingredient) throw new Exception('Have to provide an Ingredient object!');
-		
+	public function findIngredient($name, $amount, $unit) {
 		foreach ($this->_items as $item) {
-			if ($item->getName() != $ingredient->getName()) continue;
-			if ($item->getAmount() < $ingredient->getAmount()) continue;
-			if ($item->getUnit() != $ingredient->getUnit()) continue;
+			if ($item->getName() != $name) continue;
+			if ($item->getAmount() < $amount) continue;
+			if ($item->getUnit() != $unit) continue;
 			if ($item->isExpired()) continue;
 			
 			return $item->getUseBy();
@@ -39,6 +37,7 @@ class Fridge {
 	public function getItems() {
 		return $this->_items;
 	}
+
 	/*public function __construct($filename = '') {
 		if(empty($filename)) {
 			echo 'Please input a csv file name: ';
