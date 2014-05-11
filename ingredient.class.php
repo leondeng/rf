@@ -53,7 +53,7 @@ class Ingredient {
 	}
 	
 	public function __toString() {
-		return sprintf('\t\tItem: %s, Amount: %d, Unit: %s\n', $this->getName(), $this->getAmount(), $this->getUnit());
+		return sprintf("\t\tItem: %s, Amount: %d, Unit: %s\n", $this->getName(), $this->getAmount(), $this->getUnit());
 	}
 	
 }

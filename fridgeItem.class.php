@@ -63,7 +63,7 @@ class FridgeItem {
 
 	public function isExpired() {
 		list($d, $m, $y) = explode('/', $this->_useby);
-		//date_default_timezone_set('Australia/Sydney');
+
 		return strtotime(sprintf('%d-%d-%d', $y, $m, $d)) < time();
 	}
 }

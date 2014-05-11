@@ -9,7 +9,7 @@ class IngredientUnitTest extends PHPUnit_Framework_TestCase
 		'unit' => 'slices',
 	);
 
-	private static $output = '\t\tItem: bread, Amount: 2, Unit: slices\n';
+	private static $output = "\t\tItem: bread, Amount: 2, Unit: slices\n";
 
 	public function testInitlization() {
 		$ingredient = new Ingredient(self::$values);

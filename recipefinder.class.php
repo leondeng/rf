@@ -10,11 +10,11 @@ class RecipeFinder {
 	public function __construct($fridge_filename, $recipes_filename) {
 		$fridge_filename = dirname(__FILE__) . '/data/' . $fridge_filename;
 		if(!file_exists($fridge_filename) || !is_readable($fridge_filename))
-			throw new Exception('Invalid fridge items data file!\n');
+			throw new Exception('Invalid fridge items data file!');
 
 		$recipes_filename = dirname(__FILE__) . '/data/' . $recipes_filename;
 		if(!file_exists($recipes_filename) || !is_readable($recipes_filename))
-			throw new Exception('Invalid recipes data file!\n');
+			throw new Exception('Invalid recipes data file!');
 		
 		$this->initialize($fridge_filename, $recipes_filename);
 	}

@@ -17,7 +17,7 @@ class RecipeUnitTest extends PHPUnit_Framework_TestCase
 				'unit' => 'slices'
 	)));
 
-	private static $output = '\tName: grilled cheese on toast\n\tIngredients:\n\t\tItem: bread, Amount: 2, Unit: slices\n\t\tItem: cheese, Amount: 2, Unit: slices\n';
+	private static $output = "\tName: grilled cheese on toast\n\tIngredients:\n\t\tItem: bread, Amount: 2, Unit: slices\n\t\tItem: cheese, Amount: 2, Unit: slices\n";
 
 	public function testInitlization() {
 		$recipe = new Recipe(self::$values);

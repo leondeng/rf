@@ -1,3 +1,5 @@
+#!/usr/bin/php -q
+
 <?php
 require_once('recipefinder.class.php');
 
@@ -30,4 +32,5 @@ to get this help description.
 		echo $e->getMessage();
     }
 }
+echo "\n";
 ?>

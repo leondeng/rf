@@ -43,7 +43,7 @@ class Recipe {
 	}
 
 	public function __toString() {
-		$string = sprintf('\tName: %s\n\tIngredients:\n', $this->getName());
+		$string = sprintf("\tName: %s\n\tIngredients:\n", $this->getName());
 		
 		foreach ($this->getIngredients() as $ingredient) {
 			$string .= (string) $ingredient;
