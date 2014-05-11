@@ -3,7 +3,7 @@
 <?php
 require_once('recipefinder.class.php');
 
-const RF_VERSION_NUMBER = '0.9.0';
+const RF_VERSION_NUMBER = '0.9.1';
 
 if ($argc != 3 || in_array($argv[1], array('--help', '-help', '-h', '-?'))) {
 ?>

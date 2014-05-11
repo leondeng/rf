@@ -13,10 +13,10 @@ class Ingredient {
 	private $_unit = '';
 	
 	public function __construct($values) {
-		if (!is_array($values)) throw new Exception('Invalid parameters for Ingredient class!');
+		if (!is_array($values)) throw new Exception('Invalid parameters to Ingredient class!');
 		
 		$_keys = array_keys($values);
-		if ($_keys !== self::$_keys) throw new Exception('Invalid parameters to Ongredient class!');
+		if ($_keys !== self::$_keys) throw new Exception('Invalid parameters to Ingredient class!');
 
 		$this->initialize($values);
 	}

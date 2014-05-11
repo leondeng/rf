@@ -63,7 +63,10 @@ class RecipeFinder {
 				if (!$ts || $_ts < $ts) $ts = $_ts; //get closer use-by timestamp
 			}
 			
-			if (!$recipe_ts || $ts < $recipe_ts) $found = $recipe;
+			if (!$recipe_ts || $ts < $recipe_ts) {
+				$recipe_ts = $ts;
+				$found = $recipe;
+			}
 		}
 		
 		return $found;

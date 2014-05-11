@@ -1,4 +1,4 @@
-RecipeFinder 0.9.0
+RecipeFinder 0.9.1
 
 Help you find the most suitable recipe with items in your fridge.
 

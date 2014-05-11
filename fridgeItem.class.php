@@ -41,7 +41,7 @@ class FridgeItem {
 	}
 
 	public function setAmount($amount) {
-		$this->_amount = $amount;
+		$this->_amount = (int) $amount;
 	}
 
 	public function getUnit() {
